@@ -21,10 +21,6 @@
 
       <div class="w-1/4 flex flex-col space-y-6">
         <div class="relative bg-gray-100 rounded p-3 pt-4">
-          <span class="absolute text-gray-700 font-semibold tracking-wide text-sm -mt-1">Workload</span>
-          <BarChart :chartdata="[]" :options="{}" />
-        </div>
-        <div class="relative bg-gray-100 rounded p-3 pt-4">
           <span class="absolute text-gray-700 font-semibold tracking-wide text-sm -mt-1">Customers</span>
           <DoughnutChart :chartdata="[]" :options="{}" />
         </div>
@@ -33,13 +29,10 @@
           <DoughnutChart :chartdata="[]" :options="{}" />
         </div>
       </div>
-    </div>
-  </div>
 </template>
 
 <script>
 import DoughnutChart from "../charts/DoughnutChart.vue";
-import BarChart from "../charts/BarChart.vue";
 import PageHeader from "../components/PageHeader.vue";
 import ActivityCard from "../components/ActivityCard.vue";
 
@@ -47,7 +40,6 @@ export default {
   name: "Timetracker",
   components: {
     DoughnutChart,
-    BarChart,
     PageHeader,
     ActivityCard
   },

@@ -25,6 +25,11 @@
                 :class="$route.path.includes('/customers') ? 'text-white border-white' : 'text-gray-300 border-transparent'"
                 class="inline-flex items-center px-1 pt-1 border-b-2  text-sm font-medium leading-5 hover:text-white"
               >Customers</router-link>
+              <router-link
+                to="/reports"
+                :class="$route.path.includes('/reports') ? 'text-white border-white' : 'text-gray-300 border-transparent'"
+                class="inline-flex items-center px-1 pt-1 border-b-2  text-sm font-medium leading-5 hover:text-white"
+              >Reports</router-link>
             </div>
           </div>
           <div class="flex items-center relative">

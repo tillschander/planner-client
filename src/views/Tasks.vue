@@ -1,38 +1,29 @@
 <template>
-  <div>
-    <PageHeader :title="'Tasks'">
-      <button
-        class="ml-2 relative inline-flex items-center px-3 py-2 border-2 border-gray-700 text-sm leading-5 font-bold rounded-md text-gray-800"
-      >Add Task</button>
-    </PageHeader>
+  <PageHeader :title="'Tasks'">
+    <button
+      class="ml-2 relative inline-flex items-center px-3 py-2 border-2 border-gray-700 text-sm leading-5 font-bold rounded-md text-gray-800"
+    >Add Task</button>
+  </PageHeader>
 
-    <div class="flex justify-center mt-6">
-      <div class="flex space-x-3">
-        <div v-for="column in columns" :key="column.title" class="bg-gray-100 p-3 w-1/4 rounded">
-          <div class="flex justify-between text-gray-700 font-semibold tracking-wide text-sm">
-            <div>{{ column.title }}</div>
-            <div class="cursor-pointer">⋮</div>
-          </div>
-          <VueDraggableNext
-            :list="column.tasks"
-            :animation="200"
-            ghost-class="ghost-card"
-            group="tasks"
-          >
-            <task-card
-              v-for="(task) in column.tasks"
-              :key="task.id"
-              :task="task"
-              class="mt-3 cursor-move"
-            ></task-card>
-          </VueDraggableNext>
-        </div>
+  <div class="flex space-x-3 mt-6">
+    <div v-for="column in columns" :key="column.title" class="bg-gray-100 p-3 w-1/4 rounded">
+      <div class="flex justify-between text-gray-700 font-semibold tracking-wide text-sm">
+        <div>{{ column.title }}</div>
+        <div class="cursor-pointer">⋮</div>
       </div>
-    </div>
-
-    <div class="relative bg-gray-100 rounded p-3 pt-4 mt-6">
-      <span class="absolute text-gray-700 font-semibold tracking-wide text-sm -mt-1">Workload</span>
-      <LineChart :chartdata="[]" :options="{}" />
+      <VueDraggableNext
+        :list="column.tasks"
+        :animation="200"
+        ghost-class="ghost-card"
+        group="tasks"
+      >
+        <task-card
+          v-for="(task) in column.tasks"
+          :key="task.id"
+          :task="task"
+          class="mt-3 cursor-move"
+        ></task-card>
+      </VueDraggableNext>
     </div>
   </div>
 </template>
@@ -41,15 +32,13 @@
 import { VueDraggableNext } from "vue-draggable-next";
 import TaskCard from "../components/TaskCard.vue";
 import PageHeader from "../components/PageHeader.vue";
-import LineChart from "../charts/LineChart.vue";
 
 export default {
   name: "Tasks",
   components: {
     PageHeader,
     TaskCard,
-    VueDraggableNext,
-    LineChart,
+    VueDraggableNext
   },
   data() {
     return {
